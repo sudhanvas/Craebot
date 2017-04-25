@@ -1,0 +1,10 @@
+package craebot;
+
+struct leds_t {
+    int64_t utime;
+    boolean debris;
+    boolean spot;
+    boolean dock;
+    boolean check;
+    byte power[2];
+}

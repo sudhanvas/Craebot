@@ -1,0 +1,11 @@
+package craebot;
+
+struct motor_feedback_t {
+	int64_t utime;
+
+	float left_wheel_position;
+	float right_wheel_position;
+
+	float left_wheel_speed;
+	float right_wheel_speed;
+}

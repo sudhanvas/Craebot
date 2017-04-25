@@ -1,0 +1,7 @@
+package craebot;
+
+struct ascii_t {
+    int64_t utime;
+    int8_t nCharacters;
+    byte data[nCharacters];
+}

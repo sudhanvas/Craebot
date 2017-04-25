@@ -1,0 +1,7 @@
+package craebot;
+
+struct teleop_t {
+    int64_t utime;
+    float linear_velocity;
+    float angular_velocity;
+}

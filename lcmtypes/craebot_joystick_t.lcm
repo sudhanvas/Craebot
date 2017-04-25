@@ -1,0 +1,9 @@
+package craebot;
+
+struct joystick_t {
+	int64_t utime;
+	int8_t nButtons;
+	int8_t nAxes;
+	boolean buttons[nButtons];
+	float axes[nAxes];
+}

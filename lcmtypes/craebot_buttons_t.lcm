@@ -1,0 +1,13 @@
+package craebot;
+
+struct buttons_t {
+    int64_t utime;
+    boolean clean;
+    boolean day;
+    boolean hour;
+    boolean minute;
+    boolean dock;
+    boolean spot;
+    boolean wheeldrop;
+    boolean cliff;
+}

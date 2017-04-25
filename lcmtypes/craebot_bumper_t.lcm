@@ -1,0 +1,25 @@
+package craebot;
+
+struct bumper_t {
+    int64_t utime;
+
+    boolean is_left_pressed;
+    boolean is_right_pressed;
+
+    boolean is_light_left;
+    boolean is_light_front_left;
+    boolean is_light_center_left;
+    boolean is_light_center_right;
+    boolean is_light_front_right;
+    boolean is_light_right;
+
+    // Values in range [0, 4095]
+    int16_t light_signal_left;
+    int16_t light_signal_front_left;
+    int16_t light_signal_center_left;
+    int16_t light_signal_center_right;
+    int16_t light_signal_front_right;
+    int16_t light_signal_right;
+
+    byte omni_ir;
+}

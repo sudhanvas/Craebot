@@ -1,0 +1,11 @@
+package craebot;
+
+struct odometry_t {
+    int64_t utime;
+
+    float pose[3];     // [x,  y,  yaw]
+    float velocity[3]; // [dX, dY, dYaw] / dt
+
+    float pose_covariance[9];     // 3x3 covariance matrix in row-major order.
+    float velocity_covariance[9]; // 3x3 covariance matrix in row-major order.
+}
