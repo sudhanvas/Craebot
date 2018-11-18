@@ -1,0 +1,27 @@
+version: '3.5'
+services:
+  craebot_joystick:
+    build:
+      context: ../..
+      dockerfile: docker/dockerfiles/x86_64.dockerfile
+    command: /craebot/craebot-joystick
+    container_name: craebot_joystick
+    devices:
+      - /dev/input/js1:/dev/input/js1:rw
+    image: craebot_joystick
+    user: 1000:1000
+    network_mode: host
+    volumes:
+      - ../../build/bin:/craebot
+      - /etc/localtime:/etc/localtime:ro
+  craebot_teleop:
+    build:
+      context: ../..
+      dockerfile: docker/dockerfiles/x86_64.dockerfile
+    command:  /craebot/craebot-teleop
+    container_name: craebot_teleop
+    image: craebot_teleop
+    network_mode: host
+    volumes:
+      - ../../build/bin:/craebot
+      - /etc/localtime:/etc/localtime:ro

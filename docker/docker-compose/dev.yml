@@ -1,0 +1,29 @@
+version: '3.5'
+services:
+  craebot_dev:
+    build:
+      context: ../..
+      dockerfile: docker/dockerfiles/dev.dockerfile
+    container_name: craebot_dev
+    command: "sudo /craebot/build/bin/craebot-driver"
+    devices:
+    - /dev/ttyUSB0:/dev/ttyUSB0
+    - /dev/input/js1:/dev/input/js1
+    environment:
+      - DISPLAY
+    image: craebot_dev
+    user: 1000:1000
+    network_mode: host
+    privileged: true
+    volumes:
+      - ../..:/craebot
+      - /etc/group:/etc/group:ro
+      - /etc/passwd:/etc/passwd:ro
+      - /etc/shadow:/etc/shadow:ro
+      - /etc/sudoers.d:/etc/sudoers.d:ro
+      - /etc/localtime:/etc/localtime:ro
+      - /opt/jetbrains/apps/CLion/ch-0/182.5107.21:/opt/clion
+      - ${HOME}/.CLion2018.2:${HOME}/.CLion2018.2
+      - ${HOME}/.java:${HOME}/.java
+      - ${HOME}/.ccache:${HOME}/.ccache
+    working_dir: /craebot

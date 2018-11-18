@@ -1,0 +1,16 @@
+version: "3.5"
+services:
+  zcm_spy:
+    build:
+      context: ../..
+      dockerfile: docker/dockerfiles/x86_64.dockerfile
+    command: /usr/local/bin/zcm-spy --zcm-url="udpm://224.1.1.1:5001/?ttl=1"
+    container_name: craebot_zcm_spy
+    environment:
+      - DISPLAY
+    image: craebot_zcm_spy
+    user: 1000:1000
+    network_mode: host
+    volumes:
+      - ../..:/craebot
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw

@@ -1,0 +1,21 @@
+version: '3.5'
+services:
+  driver:
+    build:
+      context: ../..
+      dockerfile: docker/dockerfiles/armhf.dockerfile
+    command: "sudo /craebot/build/bin/craebot-driver"
+    container_name: craebot_driver
+    devices:
+      - /dev/ttyUSB0:/dev/ttyUSB0
+    environment:
+    - DISPLAY
+    image: local.registry:5000/craebot_driver
+    network_mode: host
+    user: 1000:1000
+    volumes:
+      - /etc/group:/etc/group:ro
+      - /etc/passwd:/etc/passwd:ro
+      - /etc/shadow:/etc/shadow:ro
+      - /etc/sudoers.d:/etc/sudoers.d:ro
+      - /etc/localtime:/etc/localtime:ro
