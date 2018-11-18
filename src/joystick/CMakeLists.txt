@@ -1,7 +1,12 @@
+find_package (Boost REQUIRED COMPONENTS filesystem program_options)
+include_directories (${Boost_INCLUDE_DIR})
+
 set (EXE_NAME ${POD_NAME}-joystick)
+set (REQUIRED_PACKAGES zcm)
+set (REQUIRED_LIBS ${Boost_LIBRARIES} pthread)
 
-set (REQUIRED_PACKAGES common lcm)
-
-add_executable (${EXE_NAME} main.cpp joystick.cpp)
+file (GLOB SOURCE_FILES main.cc lib/*.cc)
+add_executable (${EXE_NAME} ${SOURCE_FILES})
+target_link_libraries (${EXE_NAME} ${REQUIRED_LIBS})
 pods_use_pkg_config_packages (${EXE_NAME} ${REQUIRED_PACKAGES})
 pods_install_executables (${EXE_NAME})

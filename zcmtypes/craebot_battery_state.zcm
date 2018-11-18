@@ -1,0 +1,19 @@
+package craebot;
+
+struct battery_state_t {
+    const int8_t CHARGE_NONE = 0;
+    const int8_t CHARGE_RECONDITION = 1;
+    const int8_t CHARGE_FULL = 2;
+    const int8_t CHARGE_TRICKLE = 3;
+    const int8_t CHARGE_WAITING = 4;
+    const int8_t CHARGE_FAULT = 5;
+
+    int64_t utime;
+    float voltage;
+    float current;
+    float charge;
+    float capacity;
+    float charge_ratio;
+    int16_t temperature;
+    byte charging_state;
+}
